@@ -1,4 +1,8 @@
-class InputManager
+require_relative 'input_manager'
+
+class TxtInputManager
+  include InputManager
+
   def initialize(path)
     @file_path = path
   end
