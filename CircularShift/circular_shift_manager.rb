@@ -26,7 +26,6 @@ class CircularShift
     end
 
     @kwic_dict = kwic_dict
-    return kwic_dict
   end
 
   def order

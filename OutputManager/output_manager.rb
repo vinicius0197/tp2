@@ -13,4 +13,12 @@ class OutputManager
       f.write renderer
     end
   end
+
+  def print_console
+    @kwic_dict.each do |key, value|
+      value.each do |line|
+        puts "#{key} | #{line}"
+      end
+    end
+  end
 end
