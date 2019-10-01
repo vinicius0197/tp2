@@ -10,12 +10,18 @@ class CircularShift
   end
 
   def create_kwic_dict
-    line = @lines[0]
     kwic_dict = {}
-    words = line.split(/\W+/)
-    words.each do |word|
-      unless @stopwords.include? word
-        kwic_dict[word.downcase] = line
+    
+    @lines.each do |line|
+      words = line.split(/\W+/)
+      words.each do |word|
+        unless @stopwords.include? word
+          if(kwic_dict[word])
+            kwic_dict[word.downcase].push(line)
+          else
+            kwic_dict[word.downcase] = [line]
+          end
+        end
       end
     end
 

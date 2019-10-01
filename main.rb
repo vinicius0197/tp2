@@ -13,7 +13,7 @@ txt_file.read_file_lines()
 my_shift = CircularShift.new(txt_file.title_list)
 my_dict = my_shift.create_kwic_dict()
 my_shift.order()
-# puts my_shift.kwic_dict
+puts my_shift.kwic_dict
 
 # Usa o resultado do CircularShift para realizar o output do projeto
 html_output_manager = OutputManager.new(my_shift.kwic_dict)

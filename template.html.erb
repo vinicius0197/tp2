@@ -8,7 +8,9 @@
 
     <ul>
       <% @kwic_dict.each do |key, value| %>
-        <li class="kwic-line">File line is: <%= key %> </li>
+        <% value.each do |title| %>
+          <li><b><%= key %></b> | <%= title %> </li>
+        <% end %>
       <% end %>
     </ul>
   </body>
