@@ -1,14 +1,17 @@
 class CircularShift
   attr_accessor :kwic_dict
 
-  def initialize(lines)
-    @lines = lines.title_list
+  # input = Objeto do tipo InputManager, que deve possuir um atributo chamado 'title_list', que é uma lista
+  # contendo os títulos dos artigos
+  def initialize(input)
+    @lines = input.title_list
     @kwic_dict = {}
     @stopwords = [
-      'In', 'is', 'an', 'the', 'The', 'for'
+      'In', 'is', 'an', 'the', 'The', 'for', 'a', 'A', 'about'
     ]
   end
 
+  # Usa o atributo '@lines' para criar um dicionário KWIC, levando em conta as stopwords
   def create_kwic_dict
     kwic_dict = {}
     
@@ -28,6 +31,7 @@ class CircularShift
     @kwic_dict = kwic_dict
   end
 
+  # Realiza ordenamento alfabético do atributo @kwic_dict
   def order
     @kwic_dict = @kwic_dict.sort.to_h
   end
