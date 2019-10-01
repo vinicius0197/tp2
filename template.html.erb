@@ -9,7 +9,9 @@
     <ul>
       <% @kwic_dict.each do |key, value| %>
         <% value.each do |title| %>
-          <li><b><%= key %></b> | <%= title %> </li>
+          <% words = title.downcase.split(/\W+/) %>
+          <% index = words.index(key) %>
+          <li><%= words[0, index.to_i].join(' ') %> <b><%= key %></b> <%= words[index.to_i+1, words.size].join(' ') %> </li>
         <% end %>
       <% end %>
     </ul>
