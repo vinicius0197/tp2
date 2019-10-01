@@ -1,0 +1,15 @@
+<html>
+  <head>
+
+  </head>
+
+  <body>
+    <h1>Keyword in Context</h1>
+
+    <ul>
+      <% @kwic_dict.each do |key, value| %>
+        <li class="kwic-line">File line is: <%= key %> </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
