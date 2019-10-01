@@ -10,11 +10,11 @@ txt_file.print_path()
 txt_file.read_file_lines()
 
 # Usa o módulo CircularShift para criar o dicionário de KWIC com ordenamento alfabético
-kwic = CircularShift.new(txt_file.title_list)
+kwic = CircularShift.new(txt_file)
 kwic.create_kwic_dict()
 kwic.order()
 
 # Usa o resultado do CircularShift para realizar o output do projeto
-output_manager = OutputManager.new(kwic.kwic_dict)
+output_manager = OutputManager.new(kwic)
 output_manager.print_as_html()
 output_manager.print_console()

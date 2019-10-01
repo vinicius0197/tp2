@@ -2,7 +2,7 @@ class CircularShift
   attr_accessor :kwic_dict
 
   def initialize(lines)
-    @lines = lines
+    @lines = lines.title_list
     @kwic_dict = {}
     @stopwords = [
       'In', 'is', 'an', 'the', 'The', 'for'

@@ -1,8 +1,8 @@
 require 'erb'
 
 class OutputManager
-  def initialize(kwic_dict)
-    @kwic_dict = kwic_dict
+  def initialize(kwic)
+    @kwic_dict = kwic.kwic_dict
   end
 
   def print_as_html
