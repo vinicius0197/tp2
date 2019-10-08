@@ -11,6 +11,12 @@
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
 # it.
+
+require 'webmock/rspec'
+require 'mock/mocks'
+
+WebMock.disable_net_connect!(allow_localhost: true)
+mock = Mock.new() # instancia o módulo de 'Mocks' para acesso a API externa
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -26,6 +32,19 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+
+  # Substitui chamadas à API externa
+  config.before(:each) do
+    stub_request(:get, "https://dblp.org/search/publ/api?format=json&q=test").
+    with(
+      headers: {
+     'Accept'=>'*/*',
+     'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+     'Host'=>'dblp.org',
+     'User-Agent'=>'Ruby'
+      }).
+      to_return(status: 200, body: mock.mock_json_response.to_json, headers: {})
   end
 
   # rspec-mocks config goes here. You can use an alternate test double

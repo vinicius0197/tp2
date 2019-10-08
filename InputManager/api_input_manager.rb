@@ -18,7 +18,6 @@ class ApiInputManager
     url = URI.parse(BASE_URL)
     url.query = URI.encode_www_form(params)
     response = Net::HTTP.get_response(url)
-    # puts response.body
     @results = JSON.parse(response.body)["result"]["hits"]["hit"]
   end
 
