@@ -1,7 +1,7 @@
 require_relative 'InputManager/txt_input_manager'
 require_relative 'InputManager/api_input_manager'
 require_relative 'CircularShift/circular_shift_manager'
-require_relative 'OutputManager/output_manager'
+require_relative 'OutputManager/html_output_manager'
 
 # Módulo que carrega o arquivo fonte de texto
 txt_file = TxtInputManager.new('./input.txt')
@@ -19,6 +19,6 @@ kwic.create_kwic_dict()
 kwic.order()
 
 # Usa o resultado do CircularShift para realizar o output do projeto
-output_manager = OutputManager.new(kwic)
-output_manager.print_as_html()
-# output_manager.print_console()
+output_manager = HtmlOutputManager.new(kwic)
+output_manager.output()
+output_manager.print_console()

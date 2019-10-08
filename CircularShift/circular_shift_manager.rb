@@ -1,5 +1,5 @@
 class CircularShift
-  attr_accessor :kwic_dict
+  attr_accessor :kwic_dict, :stopwords
 
   # input = Objeto do tipo InputManager, que deve possuir um atributo chamado 'title_list', que é uma lista
   # contendo os títulos dos artigos
